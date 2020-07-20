@@ -3,7 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Form from './Form';
 import OrderCard from './OrderCard';
-
+import piz from "../images/Pizza.jpg";
 
 const Home = props => {
     return (
@@ -14,13 +14,13 @@ const Home = props => {
                 <header>
                     <h1>Lambda Eats</h1>
                     <nav>
-                        <a href="/pizza"><Link to='/Pizza'></Link>Pizza</a>
+                        <a href="/pizza">Pizza</a>
                         <a>Help</a>
                     </nav>
 
                 </header>
                 <div>
-                    <img src="https://unsplash.com/photos/MqT0asuoIcU"></img>
+                    <img src="https://media.timeout.com/images/101629097/image.jpg"></img>
                     <a href="/Pizza">
                         <button>Pizza</button> </a>
                     {props.orders.map((order, i) => < OrderCard key={i} order={order} />)}
@@ -31,7 +31,7 @@ const Home = props => {
                     </label>
                     <Location_selection>
                         <Section_container>
-                            <img src="../Assets/Pizza.jpg"></img>
+                            <img src="/images/Pizza.jpg"></img>
                             < h2>McDonald's</h2>
                             <p>AMerican Burger</p>
                             <div>
@@ -40,7 +40,7 @@ const Home = props => {
                             </div>
                         </Section_container>
                         <Section_container>
-                            <img src="../Assets/Pizza.jpg"></img>
+                            <img src="Pizza.jpg"></img>
                             < h2>McDonald's</h2>
                             <p>AMerican Burger</p>
                             <div>
@@ -78,7 +78,7 @@ flex-direction:row;
 }
 h1{
     color:red;
-    margin-right:50%;
+    margin-right:60%;
 }
 a{
     color:black;

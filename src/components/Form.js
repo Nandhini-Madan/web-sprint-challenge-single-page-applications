@@ -11,7 +11,7 @@ const schema = yup.object().shape({
 const defaultFormState = {
     name: '',
     phone: '',
-    bun: 'Sesame Seed',
+    pizza_size: '10"',
     patties: '1',
     condiments: {
         ketchup: false,
@@ -89,12 +89,12 @@ const Form = props => {
                 <input type='tel' name='phone' onChange={handleChange} data-cy='phone' value={formState.phone} />
                 {errors.phone.length > 0 && <p style={{color:'red'}}>{errors.phone}</p>}
             </label>
-            <label>Select Bun
-                <select name='bun' data-cy='bun' defaultValue='Sesame Seed' onChange={handleChange}>
-                    <option value='Sesame Seed'>Sesame Seed</option>
-                    <option value='Pretzel'>Pretzel</option>
-                    <option value='Brioche'>Brioche</option>
-                    <option value='Clabatta'>Clabatta</option>
+            <label>Select pizza size
+                <select name='pizza_size' data-cy='pizza_size' defaultValue='10' onChange={handleChange}>
+                    <option value='10"'>10"</option>
+                    <option value='12'>12"</option>
+                    <option value='14'>14"</option>
+                    <option value='16'>16"</option>
                     <option value='Kaiser Roll'>Kaiser Roll</option>
                 </select>
             </label>
@@ -149,7 +149,7 @@ const Form = props => {
             <label>
                 <textarea name='instructions' data-cy='instructions' onChange={handleChange} value={formState.instructions} />
             </label>
-            <button data-cy="submit-button" disabled={isDisabled} type='submit'>Order Your Burger</button>
+            <button data-cy="submit-button" disabled={isDisabled} type='submit'>Order Your pizza</button>
             </form>
         </FormContainer>
     );

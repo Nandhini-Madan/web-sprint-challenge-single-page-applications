@@ -1,63 +1,112 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Form from'./Form';
+import Form from './Form';
 import OrderCard from './OrderCard';
+
 
 const Home = props => {
     return (
-        <HomeContainer>
-            <header>
-                <h1>You Build It, You Eat It</h1>
-                
-            </header>
-           <p> <Link to='/Pizza'>Build Your Pizza</Link></p>
-        {props.orders.map((order, i) => < OrderCard key={i} order={order} />)}
-        </HomeContainer>
+        <div>
+
+
+            <HomeContainer>
+                <header>
+                    <h1>Lambda Eats</h1>
+                    <nav>
+                        <a href="/pizza"><Link to='/Pizza'></Link>Pizza</a>
+                        <a>Help</a>
+                    </nav>
+
+                </header>
+                <div>
+                    <img src="https://unsplash.com/photos/MqT0asuoIcU"></img>
+                    <a href="/Pizza">
+                        <button>Pizza</button> </a>
+                    {props.orders.map((order, i) => < OrderCard key={i} order={order} />)}
+                </div>
+                <div>
+                    <label>
+                        Gowtham City
+                    </label>
+                    <Location_selection>
+                        <Section_container>
+                            <img src="../Assets/Pizza.jpg"></img>
+                            < h2>McDonald's</h2>
+                            <p>AMerican Burger</p>
+                            <div>
+                                <button>20-30 min</button>
+                                <button>$5.99 deliveryFee</button>
+                            </div>
+                        </Section_container>
+                        <Section_container>
+                            <img src="../Assets/Pizza.jpg"></img>
+                            < h2>McDonald's</h2>
+                            <p>AMerican Burger</p>
+                            <div>
+                                <button>20-30 min</button>
+                                <button>$5.99 deliveryFee</button>
+                            </div>
+
+                        </Section_container>
+                    </Location_selection>
+
+
+                </div>
+
+            </HomeContainer>
+
+        </div>
     );
 }
 
-const HomeContainer = styled.div`
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    header {
-        width: 100%;
-        
-        background-color: black;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 60%;
-        height: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        h1 {
-            color: #fff;
-            margin-top: 5rem;
-            font-size: 3.6rem;
-            backdrop-filter: brightness(40%);
-            padding: 20px;
-            border-radius: 15px;
-        }
-    }
-    a {
-        text-decoration: none;
-        font-size: 2.4rem;
-        padding: 20px;
-        border: 3px solid #fff;
-        color: black;
-        margin: 5rem 0 5rem 0;
-        &:hover {
-            background: rgba(255, 255, 255, 0.05);
-        }
-    }
-    div {
-        color: blue;
-    }
-   
+
+const HomeContainer = styled.div
+    `
+max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding-right:2%;
+  padding-left:2%;
+  background-color:yellow;
+
+header{
+    padding-top:30px;
+    padding-bottom:30px;
+display:flex;
+flex-direction:row;
+}
+h1{
+    color:red;
+    margin-right:50%;
+}
+a{
+    color:black;
+    text-align:right;
+    margin-left:90%;
+    text-decoration:none;
+}
+img{
+    width:750px;
+    height:400px;
+}`
+
+const Location_selection = styled.div
+    `display:flex;
+flex-direction:row;
+width:100Px;
+
+img{
+    width:200px;
+    height:200px;
+}
+h2{
+    padding-bottom:10px;
+}`
+
+const Section_container=styled.div`
+
+padding-right:20px;
 `
 
 export default Home;

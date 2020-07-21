@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import styled from 'styled-components';
 import axios from 'axios';
+import OrderCard from './OrderCard';
 
 const schema = yup.object().shape({
     name: yup.string().required('Please enter your name').min(2, 'That\'s not a real name.'),
@@ -14,14 +15,14 @@ const defaultFormState = {
     pizza_size: '10"',
     patties: '1',
     condiments: {
-        ketchup: false,
-        mustard: false,
-        mayonaise: false,
-        barbecue: false,
-        lettuce: false,
+        pepperoni: false,
+        Sausage: false,
+        Diced_Tomato: false,
+       Roasted_Garlic : false,
+        Grilled_Chicken: false,
         onion: false,
-        cheese: false,
-        bacon: false
+        Green_Pepper: false,
+        Extra_Cheese: false
     },
     instructions: ''
 }
@@ -35,7 +36,7 @@ const Form = props => {
     const [formState, setFormState] = useState(defaultFormState);
     const [errors, setErrors] = useState(defaultErrorState);
     const [isDisabled, setIsDisabled] = useState(true);
-
+    
     useEffect(() => {
         schema.isValid(formState).then(valid => setIsDisabled(!valid));
     }, [formState, schema])
@@ -69,11 +70,13 @@ const Form = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
+
         console.log("Formdata",formState);
         axios.post("https://reqres.in/api/users", formState)
         .then(res =>   
             props.addOrder(res.data))
         .catch(err => console.log("error",err));
+        
     }
 
     return (
@@ -113,36 +116,37 @@ const Form = props => {
             </fieldset>
             <fieldset>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='ketchup' value='ketchup' />
-                    Ketchup
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='pepperoni' value='pepperoni' />
+                    pepperoni
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='mustard' value='mustard' />
-                    Mustard
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='Sausage' value='Sausage' />
+                    Sausage
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='mayonaise' value='mayonaise' />
-                    Mayonaise
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='Diced_Tomato' value='Diced_Tomato' />
+                    Diced Tomato 
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='barbecue' value='barbecue' />
-                    Barbecue
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='Roasted_Garlic' value='Roasted_Garlic' />
+                    Roasted Garlic
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='onion' value='onion' />
-                    Onion
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='Grilled_Chicken' value='Grilled_Chicken' />
+                    Grilled Chicken
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='lettuce' value='lettuce' />
-                    Lettuce
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='onion' value='onion
+                    ' />
+                    onion
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='cheese' value='cheese' />
-                    Cheese
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='Green_pepper' value='Green_pepper' />
+                    Green pepper
                 </label>
                 <label>
-                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='bacon' value='bacon' />
-                    Bacon
+                    <input type='checkbox' name='condiments' onChange={handleChange} data-cy='Extra_Cheese' value='Extra Cheese' />
+                    Extra Cheese
                 </label>
             </fieldset>
             <label>

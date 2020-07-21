@@ -15,15 +15,15 @@ const Home = props => {
                     <h1>Lambda Eats</h1>
                     <nav>
                         <a href="/pizza">Pizza</a>
+                        {props.orders.map((order, i) => < OrderCard key={i} order={order} />)}
                         <a>Help</a>
                     </nav>
 
                 </header>
                 <div>
                     <img src="https://media.timeout.com/images/101629097/image.jpg"></img>
-                    <a href="/Pizza">
-                        <button>Pizza</button> </a>
-                    {props.orders.map((order, i) => < OrderCard key={i} order={order} />)}
+                    
+                   
                 </div>
                 <div>
                     <label>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const schema = yup.object().shape({
-    name: yup.string().required('Please enter your name').min(3, 'That\'s not a real name.'),
+    name: yup.string().required('Please enter your name').min(2, 'That\'s not a real name.'),
     phone: yup.string().required('Please enter a phone number.').matches(/^[0-9]{10}$/, 'Please enter a valid phone number.')
 })
 
@@ -71,8 +71,7 @@ const Form = props => {
         e.preventDefault();
         console.log("Formdata",formState);
         axios.post("https://reqres.in/api/users", formState)
-        .then(res => 
-            
+        .then(res =>   
             props.addOrder(res.data))
         .catch(err => console.log("error",err));
     }
@@ -95,12 +94,12 @@ const Form = props => {
                     <option value='12'>12"</option>
                     <option value='14'>14"</option>
                     <option value='16'>16"</option>
-                    <option value='Kaiser Roll'>Kaiser Roll</option>
+                    <option value='24'>24"</option>
                 </select>
             </label>
             <fieldset>
                 <label>
-                    <input checked type='radio' name='patties' onChange={handleChange} data-cy='1' value='1' />
+                    <input  type='radio' name='patties' onChange={handleChange} data-cy='1' value='1' />
                     1 patty
                 </label>
                 <label>

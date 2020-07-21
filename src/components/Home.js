@@ -31,7 +31,7 @@ const Home = props => {
                     </label>
                     <Location_selection>
                         <Section_container>
-                            <img src="/images/Pizza.jpg"></img>
+                            <img src="images/Pizza.jpg"></img>
                             < h2>McDonald's</h2>
                             <p>AMerican Burger</p>
                             <div>
